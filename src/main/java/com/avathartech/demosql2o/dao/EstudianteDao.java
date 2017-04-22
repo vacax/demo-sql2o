@@ -17,9 +17,19 @@ public class EstudianteDao {
     public EstudianteDao() {
         //subiendola en modo Embedded
         this.sql2o = new Sql2o("jdbc:h2:~/demosql2o", "sa", "");
+        crearTabla();
         cargaDemo();
     }
 
+    /**
+     * 
+     */
+    private void crearTabla(){
+        String sql="CREATE TABLE IF NOT EXISTS estudiante(matricula INT PRIMARY KEY, nombre VARCHAR(255));";
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql).executeUpdate();
+        }
+    }
 
     private void cargaDemo(){
         System.out.println("Cargando el demo...");
