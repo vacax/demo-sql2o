@@ -31,6 +31,9 @@ public class EstudianteDao {
         }
     }
 
+    /**
+     *
+     */
     private void cargaDemo(){
         System.out.println("Cargando el demo...");
         if(getAllEstudiante().isEmpty()){
@@ -38,6 +41,10 @@ public class EstudianteDao {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     public List<Estudiante> getAllEstudiante(){
         String sql="select * from estudiante";
         try(Connection con = sql2o.open()){
@@ -45,6 +52,9 @@ public class EstudianteDao {
         }
     }
 
+    /**
+     *
+     */
     public void crearDataDemo(){
         String sql = "insert into estudiante (matricula, nombre) values(:matricula,:nombre)";
         try (Connection con = sql2o.open()) {
